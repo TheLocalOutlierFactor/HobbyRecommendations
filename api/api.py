@@ -51,15 +51,17 @@ HOBBIES_1 = np.array(['Интернет',
                       'Социализация'
                      ])
 
+
 @app.route('/api/questions')
 def get_questions():
     with open('api/questions.json') as q:
         questions = json.load(q)
     return questions
 
-@app.route('/api/result', methods=["POST"])
+
+@app.route('/api/result', methods=['POST'])
 def get_result():
-    answers = request.json.get("Answers")
+    answers = request.json.get('Answers')
     answers = [int(x) for x in answers]
     answers = np.asarray(answers).reshape(1, -1)
     answers = preprocessing.scale(answers, axis=1)
@@ -87,7 +89,7 @@ def get_result():
     recommendations = {'recommendations': final_result}
     return recommendations
 
+
 @app.route('/')
 def serve():
     return send_from_directory(app.static_folder, 'index.html')
-
