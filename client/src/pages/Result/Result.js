@@ -4,7 +4,7 @@ const Results = ({result}) => {
     const styles = Styles();
     return (
         <div>
-            <div className={styles.header}>Это может Вам понравиться:</div>
+            <div className={styles.header}>Это может вам понравиться:</div>
             <div className={styles.results}>
             {result.recommendations.map((recommendation, index) =>
                 {
