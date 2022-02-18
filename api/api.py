@@ -9,9 +9,9 @@ import numpy as np
 app = Flask(__name__, static_folder='../client/build', static_url_path='')
 cors = CORS(app)
 
-clf_b = load('./models/model_balanced.joblib')
-clf_0 = load('./models/model_bias_0.joblib')
-clf_1 = load('./models/model_bias_1.joblib')
+clf_b = load('./api/models/model_balanced.joblib')
+clf_0 = load('./api/models/model_bias_0.joblib')
+clf_1 = load('./api/models/model_bias_1.joblib')
 
 HOBBIES_B = np.array(['История',
                       'Психология',
@@ -53,7 +53,7 @@ HOBBIES_1 = np.array(['Интернет',
 
 @app.route('/api/questions')
 def get_questions():
-    with open('questions.json') as q:
+    with open('api/questions.json') as q:
         questions = json.load(q)
     return questions
 
@@ -91,5 +91,3 @@ def get_result():
 def serve():
     return send_from_directory(app.static_folder, 'index.html')
 
-if __name__ == "__main__":
-    app.run(host='0.0.0.0')
