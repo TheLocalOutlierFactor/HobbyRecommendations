@@ -19,7 +19,7 @@ Data processing and model training pipeline is located in the file *recommendati
 
 The model used for making prediction consists of 3 Multilayer Perceptrons (implementation from Scikit-learn library).
 
-All hobbies were split into 3 groups based on the balance between classes in the data pool for each separate hobby (hobbies with balanced data, hobbies with data where class 1 predominates, hobbies with data where class 0 predominates). This was done to ensure optimal fine-tuning of the hyper-parameters of the model for each case of balance/imbalance of classes in data for each separate group of hobbies.
+All hobbies were split into 3 groups based on the balance between classes in the data pool for each separate hobby (hobbies with balanced data, hobbies with data where class 1 predominates, hobbies with data where class 0 predominates). This was done to ensure optimal fine-tuning of the model hyper-parameters for each case of balance/imbalance of classes in data for each separate group of hobbies.
 
 The pipeline also contains an estimation of performance for the more classical approach to recommender systems - the cosine similarity.
 
