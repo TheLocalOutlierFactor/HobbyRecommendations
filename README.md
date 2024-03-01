@@ -1,28 +1,24 @@
-# Рекомендации хобби с использованием машинного обучения по результатам прохождения опроса.
+# Hobby recommendation Web-Application
 
-Приложение находится по адресу: https://hobbiesrecommendations.herokuapp.com/
+The application is hosted on the following address: https://hobbiesrecommendations.herokuapp.com/ 
+(UPD: RIP Heroku)
 
-Приложение представляет собой опросник из 57 вопросов на различные темы, после прохождения опроса пользователю предлагаются хобби,
-которые могут его заинтересовать.
+The application represents a questionnaire with 57 questions on different subjects. 
 
-Для создания опросника и обучения моделей использовались данные опроса молодых людей с сайта Kaggle (https://www.kaggle.com/miroslavsabo/young-people-survey). 
-Перевод категорий и вопросов выполнен мной.
+After answering the questionnaire user receives a list of hobby recommendations predicted by a machine learning model.
 
-Фронтенд написан на ReactJS.
+Results of the young people survey published on Kaggle were used for training the model (https://www.kaggle.com/miroslavsabo/young-people-survey).
+All questions are translated to Russian language by me.
 
-Бэкенд  написан на Flask.
+Front-end part of the application is created with ReactJS.
+Back-end part of the application is created with Flask.
 
-Пайплайн обработки данных и обучения и оценки моделей находится в файле *recommendations_pipeline.ipynb*.
+Data processing and model training pipeline is located in the file *recommendations_pipeline.ipynb*.
 
-Для предсказания ответов используются 3 обученных модели многослойного перцептрона (реализация из scikit-learn).
+The model used for making prediction consists of 3 Multilayer Perceptrons (implementation from Scikit-learn library).
 
-Все хобби были поделены на три группы в зависимости от сбалансированности классов для каждого отдельного хобби (сбалансированные хобби;
-хобби, в которых преобладает класс 1; хобби, в которых преобладает класс 0), чтобы можно было подобрать гиперпараметры для каждого
-отдельного случая сбалансированности/несбалансированности классов.
+All hobbies were split into 3 groups based on the balance between classes in the data pool for each separate hobby (hobbies with balanced data, hobbies with data where class 1 predominates, hobbies with data where class 0 predominates). This was done to ensure optimal fine-tuning of the hyper-parameters of the model for each case of balance/imbalance of classes in data for each separate group of hobbies.
 
-В пайплайне также присутствует оценка "классического" подхода к нахождению похожих пользователей (косинусное расстояние).
+The pipeline also contains an estimation of performance for the more classical approach to recommender systems - the cosine similarity.
 
-Обученные модели были сохранены на диск (с помощью joblib) и используются в бэкенд части приложения для получения предсказания после
-прохождения пользователем опроса.
-
-Пользователю дается не более 6 рекомендаций, приводятся только самые вероятные рекомендации (уверенность предсказания больше 0.5).
+User receives up to 6 recommendations sorted by the prediction confidence, from highest to lowest, minimal confidence threshold for a recommendation is 0.5.
