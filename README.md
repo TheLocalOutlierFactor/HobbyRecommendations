@@ -8,9 +8,11 @@ The application represents a questionnaire with 57 questions on different subjec
 After answering the questionnaire user receives a list of hobby recommendations predicted by a machine learning model.
 
 Results of the young people survey published on Kaggle were used for training the model (https://www.kaggle.com/miroslavsabo/young-people-survey).
+
 All questions are translated to Russian language by me.
 
 Front-end part of the application is created with ReactJS.
+
 Back-end part of the application is created with Flask.
 
 Data processing and model training pipeline is located in the file *recommendations_pipeline.ipynb*.
